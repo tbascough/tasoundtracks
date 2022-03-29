@@ -30,17 +30,18 @@ function displayHeader(pagename){
 // 	`
 // }
 
-function displayNav2(){
-	var navBar = document.getElementById('navBar')
-	navBar.innerHTML =`
-			<nav>
-				<a class="navbutton" href="./index.html">Games</a>
-				<a class="navbutton" href="./mus.html">Songs</a>
-				<a class="navbutton" href="./sd.html">Film Scores</a>
-				<a class="navbutton" href="./sd.html">About</a>
-			</nav>
-	`
-}
+// function displayNav2(){
+// 	var navBar = document.getElementById('navBar')
+// 	var cbfilms = document.getElementById('cbfilms')
+// 	navBar.innerHTML =`
+// 			<nav>
+// 				<a class="navbutton" href="./index.html">Games</a>
+// 				<a class="navbutton" href="./mus.html">Music</a>
+// 				<a class="navbutton" href="${cbfilms}">Film</a>
+// 				<a class="navbutton" href="./sd.html">About</a>
+// 			</nav>
+// 	`
+// }
 
 
 
@@ -58,6 +59,6 @@ window.onload = function(){
 	console.log(myTitle)
 
 	displayHeader(myTitle[1])
-	displayNav2()
+	// displayNav2()
 }
 
