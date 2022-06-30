@@ -1,4 +1,4 @@
-
+	
 function displayHeader(pagename){
 	var header = document.getElementById('header')
 
