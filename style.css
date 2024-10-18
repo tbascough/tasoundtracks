@@ -36,9 +36,13 @@ body {
 /* Navigation Bar */
 #navBar {
     background: #4B2E2E;
-    position: sticky;
-    top: 0;
-    z-index: 100;
+    position: relative; /* Ensure the waveform can align properly */
+    height: 80px; /* Adjust as needed to make room for the waveform */
+    overflow: hidden; /* Hide any overflow from the waveform */
+    z-index: 1; /* Ensure it stays above the wave */
+    display: flex; /* Use flexbox to align content */
+    align-items: center; /* Vertically center content */
+    justify-content: center; /* Center horizontally if needed */
 }
 
 #navBar ul {
@@ -56,8 +60,9 @@ body {
 #navBar ul li a {
     text-decoration: none;
     color: #F5F5DC;
-    font-size: 1.2rem;
+    font-size: 1.7rem;
     transition: color 0.3s;
+    text-shadow: #FFA500;
 }
 
 #navBar ul li a:hover {
@@ -164,6 +169,51 @@ body {
     text-decoration: none;
 }
 
+.waveform {
+    position: absolute; /* Absolute positioning within the nav */
+    left: 0;
+    right: 0; /* Ensures it spans from left to right */
+    width: 100%; /* Ensure it spans the full width of the nav bar */
+    height: 100%; /* Ensure it fills the height */
+    display: flex;
+    justify-content: center; /* Center the bars */
+    align-items: flex-end; /* Align bars to the bottom */
+    gap: 2px;
+    z-index: -1; /* Ensure it's behind the menu */
+    overflow: hidden; /* Prevent bars from overflowing */
+}
+.waveform::before {
+    content: "";
+    flex: 1;
+}
+.waveform::after {
+    content: "";
+    flex: 1;
+}
+
+
+/* Individual bars */
+.bar {
+    flex: 0 0 5px; 
+    height: 100%; 
+    background-color: #000000;
+    animation: bounce 2s ease infinite;
+    border-radius: 3px;
+}
+
+
+/* Animation for the bounce effect */
+@keyframes bounce {
+    0%, 100% { transform: scaleY(0.3); }
+    50% { transform: scaleY(1); }
+}
+
+#menuitems {
+}
+
+
+
+
 /* Footer */
 footer {
     background:#0a0601;
@@ -173,6 +223,9 @@ footer {
     font-size: 1rem;
     opacity: 80%;
 }
+
+
+
 
 /* Responsive Styles */
 @media (max-width: 768px) {
@@ -200,8 +253,17 @@ footer {
     }
 
     #navBar ul li {
-        margin: 0 10px;
-        display: none;
+        margin: 0 20px; /* Adjust spacing between items */
+    }
+
+    #navBar ul {
+        position: relative; /* Ensure it's above the wave */
+        display: flex;
+        justify-content: center;
+        list-style: none;
+        padding: 10px 0;
+        margin: 0;
+        z-index: 1; /* Higher z-index than waveform */
     }
 
     .content-section h2 {

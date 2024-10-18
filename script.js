@@ -1,4 +1,11 @@
-	
+const waveform = document.getElementById('waveform');
+for (let i = 0; i < 300; i++) {
+	const bar = document.createElement('div');
+	bar.classList.add('bar');
+	bar.style.animationDelay = `${i * 0.02}s`; // Adjust the delay to create a wave effect
+	waveform.appendChild(bar);
+}
+
 function displayHeader(pagename){
 	var header = document.getElementById('header')
 
