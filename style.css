@@ -208,6 +208,12 @@ body {
     50% { transform: scaleY(1); }
 }
 
+@media (max-width: 768px) {
+    #menuitems {
+        display: none; /* Hide the menu items */
+    }
+}
+
 
 /* Footer */
 footer {
