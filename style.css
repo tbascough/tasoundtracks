@@ -225,8 +225,31 @@ footer {
     opacity: 80%;
 }
 
+/* hera page only */
 
-
+.quit {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    padding: 15px 25px;
+    color: #F5F5DC;
+    background-color: #DAA520;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: background-color 0.3s;
+}
+.quit:hover {
+    color: #F5F5DC;
+    background-color: #da7d20;
+}
+.gamebox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Make it take the full viewport height */
+    width: 100vw; /* Full viewport width */
+}
 
 /* Responsive Styles */
 @media (max-width: 768px) {
@@ -240,6 +263,7 @@ footer {
         width: 100%;
         height: auto;
         max-width: 400px;
+        padding: 100px;
     }
     
     #main-header .header-content h1 {
