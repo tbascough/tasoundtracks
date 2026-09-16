@@ -6,80 +6,201 @@ html {
     scroll-behavior: smooth;
 }
 
+:root {
+    --ink: #090805;
+    --surface: #130d09;
+    --surface-raised: #1c1510;
+    --cream: #fff4d2;
+    --gold: #e3b24e;
+    --amber: #f19a2a;
+    --cool-accent: #8fb9ff;
+    --wine: #4B2E2E;
+}
+
 body {
     font-family: 'Fondamento', sans-serif;
-    color: #F5F5DC;
-    background-color: #0a0601;
+    color: var(--cream);
+    background:
+        radial-gradient(circle at 80% 8%, rgba(143, 185, 255, 0.12), transparent 28rem),
+        linear-gradient(180deg, #050403 0%, var(--ink) 42%, #110b07 100%);
     margin: 0;
     line-height: 1.6;
-    text-shadow: -1px 5px 9px #4B2E2E;
+    text-shadow: 0 3px 18px rgba(0, 0, 0, 0.62);
 
+}
+
+img,
+iframe {
+    max-width: 100%;
+}
+
+img {
+    height: auto;
+}
+
+a {
+    color: inherit;
+}
+
+a:focus-visible {
+    outline: 2px solid var(--cool-accent);
+    outline-offset: 5px;
 }
 
 /* Header */
 #main-header {
-    background: #0a0601;
-    color: #DAA520;
-    text-shadow: -1px 5px 5px #4B2E2E;
+    background:
+        linear-gradient(90deg, rgba(5, 4, 3, 0.78) 0%, rgba(5, 4, 3, 0.5) 44%, rgba(5, 4, 3, 0.82) 100%),
+        url("imgs/Fire_Mus2.webp") center 42% / cover;
+    color: var(--gold);
+    text-shadow: 0 6px 24px rgba(0, 0, 0, 0.95);
     text-align: center;
-    padding: 40px 20px;
+    padding: clamp(64px, 10vw, 128px) 20px clamp(56px, 8vw, 96px);
+    position: relative;
+    overflow: hidden;
+}
+
+#main-header::after {
+    content: "";
+    position: absolute;
+    inset: auto 0 0;
+    height: 90px;
+    background: linear-gradient(180deg, transparent, var(--ink));
+    pointer-events: none;
+}
+
+#main-header .header-content {
+    position: relative;
+    z-index: 1;
 }
 
 #main-header .header-content h1 {
-    font-size: 3rem;
+    font-size: clamp(3.35rem, 9vw, 7rem);
+    line-height: 0.9;
     margin: 0;
 }
 
 #main-header .header-content p {
-    font-size: 1.5rem;
-    margin-top: 10px;
+    color: var(--cream);
+    font-size: clamp(1.2rem, 2.8vw, 1.8rem);
+    margin: 18px 0 0;
+}
+
+#main-header .hero-descriptor {
+    max-width: none;
+    margin: 13px auto 0;
+    color: rgba(255, 244, 210, 0.72);
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: clamp(0.74rem, 1.35vw, 0.92rem);
+    font-variant-caps: all-small-caps;
+    letter-spacing: 0.12em;
+    line-height: 1.4;
+    text-shadow: 0 4px 18px rgba(0, 0, 0, 0.78);
+}
+
+.hero-socials {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    margin-top: 22px;
+}
+
+.hero-socials a {
+    display: grid;
+    place-items: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: rgba(255, 244, 210, 0.1);
+    box-shadow: 0 0 0 1px rgba(255, 244, 210, 0.18);
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.hero-socials a:hover {
+    background: rgba(227, 178, 78, 0.24);
+    transform: translateY(-2px);
+}
+
+.hero-socials img {
+    width: 21px;
+    height: 21px;
+    object-fit: contain;
 }
 
 /* Navigation Bar */
 #navBar {
-    background: #4B2E2E;
+    background: #322021;
     position: relative; /* Ensure the waveform can align properly */
-    height: 80px; /* Adjust as needed to make room for the waveform */
+    min-height: 78px; /* Adjust as needed to make room for the waveform */
     overflow: hidden; /* Hide any overflow from the waveform */
     z-index: 1; /* Ensure it stays above the wave */
     display: flex; /* Use flexbox to align content */
     align-items: center; /* Vertically center content */
     justify-content: center; /* Center horizontally if needed */
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.35);
 }
 
 #navBar ul {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
+    gap: 8px 26px;
     list-style: none;
-    padding: 10px 0;
+    padding: 12px 20px;
     margin: 0;
+    position: relative;
+    z-index: 1;
 }
 
 #navBar ul li {
-    margin: 0 20px;
+    margin: 0;
 }
 
 #navBar ul li a {
     text-decoration: none;
-    color: #F5F5DC;
-    font-size: 1.7rem;
-    transition: color 0.3s;
-    text-shadow: #FFA500;
+    color: var(--cream);
+    font-size: clamp(1rem, 2vw, 1.55rem);
+    transition: color 0.3s, transform 0.3s;
+    text-shadow: 0 2px 16px rgba(0, 0, 0, 0.8);
+    display: inline-block;
 }
 
 #navBar ul li a:hover {
-    color: #FFA500;
+    color: var(--amber);
+    transform: translateY(-1px);
 }
 
 /* Content Sections */
 .content-section {
-    padding: 60px 20px;
+    padding: clamp(64px, 10vw, 115px) 20px;
     text-align: center;
+    position: relative;
+}
+
+.content-section + .content-section {
+    border-top: 1px solid rgba(255, 244, 210, 0.08);
 }
 
 .content-section h2 {
-    font-size: 2.5rem;
-    margin-bottom: 30px;
+    color: var(--cream);
+    font-size: clamp(2.25rem, 5vw, 4rem);
+    line-height: 1;
+    margin: 0 0 26px;
+}
+
+.content-section > p,
+.about-text,
+footer {
+    font-family: Georgia, 'Times New Roman', serif;
+    letter-spacing: 0;
+}
+
+.content-section > p {
+    max-width: 680px;
+    margin: 0 auto 12px;
+    color: rgba(255, 244, 210, 0.9);
+    font-size: clamp(1.05rem, 2vw, 1.2rem);
+    line-height: 1.7;
 }
 
 /* Media Container */
@@ -87,13 +208,24 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 20px;
+    gap: 24px;
+    margin: 30px auto 0;
+    max-width: 1180px;
 }
 
 .media-container iframe {
     width: 90%;
     max-width: 560px;
     border-radius: 12px;
+    border: 0;
+    background: var(--surface-raised);
+    box-shadow: 0 28px 80px rgba(0, 0, 0, 0.36), 0 0 0 1px rgba(255, 244, 210, 0.08);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.media-container .spotify-album {
+    max-width: 760px;
+    min-height: 520px;
 }
 
 /* Games Section */
@@ -107,8 +239,8 @@ body {
 }
 
 .game-box img:hover {
-	transform: scale(1.05);
-	box-shadow: 0 0 15px rgba(255, 215, 0, 0.7);
+	transform: translateY(-3px) scale(1.015);
+	box-shadow: 0 28px 80px rgba(0, 0, 0, 0.42), 0 0 26px rgba(255, 215, 0, 0.35);
 }
 
 .game-box p {
@@ -118,8 +250,8 @@ body {
 
 /* Film Scores Section - Hover Effect */
 .media-container iframe:hover {
-    transform: scale(1.003);
-    box-shadow: 0 0 15px rgba(255, 215, 0, 0.7);
+    transform: translateY(-2px);
+    box-shadow: 0 32px 90px rgba(0, 0, 0, 0.46), 0 0 26px rgba(255, 215, 0, 0.24);
 }
 
 /* About Section */
@@ -128,37 +260,53 @@ body {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    gap: 20px;
+    gap: 34px;
+    max-width: 1100px;
+    margin: 0 auto;
 }
 
 .profile-pic {
     width: 90%;
     max-width: 400px;
-    border-radius: 5%;
+    border-radius: 10px;
+    box-shadow: 0 28px 80px rgba(0, 0, 0, 0.44);
 }
 
 .about-text {
     max-width: 600px;
     padding: 20px;
-    background: #0a0601;
-    border-radius: 12px;
-    box-shadow: 0 0 10px #4B2E2E;
+    background: linear-gradient(180deg, rgba(28, 21, 16, 0.88), rgba(10, 6, 1, 0.88));
+    border-radius: 10px;
+    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(255, 244, 210, 0.08);
+    color: rgba(255, 244, 210, 0.92);
+    font-size: 1.05rem;
+    line-height: 1.85;
+    text-align: left;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.44);
 }
 
 /* Credits Section */
 .credits-container {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
     justify-content: center;
-    gap: 20px;
+    gap: 18px;
+    max-width: 1180px;
+    margin: 0 auto;
 }
 
 .credit-img {
-    width: 90%;
-    max-width: 300px;
-    border-radius: 12px;
-    box-shadow: 0 0 10px #0a0601;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.34);
     transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.credit-img:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 26px 70px rgba(0, 0, 0, 0.46), 0 0 0 1px rgba(227, 178, 78, 0.35);
 }
 
 /* Contact Section */
@@ -167,8 +315,23 @@ body {
 }
 
 #contact a {
-    color: #ffd700;
+    color: var(--gold);
     text-decoration: none;
+}
+
+.contact-socials {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 14px 22px;
+    margin-top: 24px;
+    font-family: Georgia, 'Times New Roman', serif;
+}
+
+.contact-socials a {
+    color: var(--cream);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(227, 178, 78, 0.48);
 }
 
 .waveform {
@@ -198,7 +361,7 @@ body {
 .bar {
     flex: 0 0 5px; 
     height: 100%; 
-    background-color: #000000;
+    background-color: rgba(0, 0, 0, 0.82);
     animation: bounce 2s ease infinite;
     border-radius: 3px;
 }
@@ -210,21 +373,33 @@ body {
     50% { transform: scaleY(1); }
 }
 
-@media (max-width: 768px) {
-    #menuitems {
-        display: none; /* Hide the menu items */
-    }
-}
-
-
 /* Footer */
 footer {
-    background:#0a0601;
-    color: #F5F5DC;
+    background: #050403;
+    color: var(--cream);
     text-align: center;
-    padding: 20px 0;
-    font-size: 1rem;
-    opacity: 80%;
+    padding: 46px 20px;
+    font-size: 0.95rem;
+    opacity: 0.72;
+    line-height: 1.65;
+    text-shadow: none;
+}
+
+footer p {
+    max-width: 780px;
+    margin: 0 auto 12px;
+}
+
+footer p:first-child {
+    color: rgba(255, 244, 210, 0.92);
+    font-family: 'Fondamento', sans-serif;
+    font-size: 1.05rem;
+}
+
+footer p:nth-child(2) {
+    margin-top: 22px;
+    color: var(--gold);
+    font-family: 'Fondamento', sans-serif;
 }
 
 /* hera page only */
@@ -234,16 +409,16 @@ footer {
     top: 15px;
     right: 15px;
     padding: 15px 25px;
-    color: #F5F5DC;
-    background-color: #DAA520;
+    color: #161009;
+    background-color: var(--gold);
     border-radius: 8px;
     text-decoration: none;
     font-size: 1.2rem;
     transition: background-color 0.3s;
 }
 .quit:hover {
-    color: #F5F5DC;
-    background-color: #da7d20;
+    color: #161009;
+    background-color: var(--amber);
 }
 .gamebox {
     display: flex;
@@ -253,8 +428,16 @@ footer {
     width: 100vw; /* Full viewport width */
 }
 
+.gamebox iframe {
+    border: 0;
+}
+
 /* Responsive Styles */
 @media (max-width: 768px) {
+    .content-section {
+        padding: 54px 18px;
+    }
+
     .game-box img:hover, 
     .media-container iframe:hover {
         transform: none;
@@ -263,42 +446,37 @@ footer {
 
     .media-container iframe {
         width: 100%;
-        height: auto;
-        max-width: 400px;
-        padding: 100px;
+        min-height: 260px;
     }
     
     #main-header .header-content h1 {
-        font-size: 2.5rem;
+        font-size: clamp(3rem, 18vw, 4.6rem);
     }
-    #games {
-        display: none; /* Hides the Games section on mobile devices */
-     }
 
     #main-header .header-content p {
-        font-size: 1.2rem;
+        font-size: 1.16rem;
     }
 
-    #navBar ul li {
-        margin: 0 20px; /* Adjust spacing between items */
+    #main-header .hero-descriptor {
+        max-width: 280px;
+        font-size: 0.76rem;
+        letter-spacing: 0.1em;
+    }
+
+    .hero-socials {
+        margin-top: 22px;
+    }
+
+    #navBar {
+        min-height: auto;
     }
 
     #navBar ul {
-        position: relative; /* Ensure it's above the wave */
-        display: flex;
-        justify-content: center;
-        list-style: none;
-        padding: 10px 0;
-        margin: 0;
-        z-index: 1; /* Higher z-index than waveform */
+        gap: 6px 14px;
     }
 
-    .content-section h2 {
-        font-size: 2rem;
-    }
-
-    .media-container iframe {
-        height: auto;
+    .media-container .spotify-album {
+        min-height: 520px;
     }
 
     .game-box img {
@@ -307,5 +485,32 @@ footer {
 
     .about-text {
         font-size: 1rem;
+        line-height: 1.78;
+        padding: 18px;
+        text-align: left;
+    }
+
+    .credits-container {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+    }
+
+    footer {
+        padding: 34px 18px;
+        font-size: 0.95rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
     }
 }
