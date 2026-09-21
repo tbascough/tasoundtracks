@@ -1,13 +1,16 @@
 const waveform = document.getElementById('waveform');
-for (let i = 0; i < 300; i++) {
-	const bar = document.createElement('div');
-	bar.classList.add('bar');
-	bar.style.animationDelay = `${i * 0.02}s`; // Adjust the delay to create a wave effect
-	waveform.appendChild(bar);
+if (waveform) {
+	for (let i = 0; i < 180; i++) {
+		const bar = document.createElement('div');
+		bar.classList.add('bar');
+		bar.style.animationDelay = `${i * 0.02}s`;
+		waveform.appendChild(bar);
+	}
 }
 
 function displayHeader(pagename){
-	var header = document.getElementById('header')
+	const header = document.getElementById('header');
+	if (!header) return;
 
 	header.innerHTML = `
 		<div class="logobox"> 
@@ -17,8 +20,8 @@ function displayHeader(pagename){
 		<div>
 			<div class="socialbox">
 				<a class="aimg" href="https://www.facebook.com/tommy.ascough" target="_blank" rel="noopener noreferrer"><img src="imgs/icon_fb.webp" class="icon"></a>
-				<a class="aimg" href="https://www.youtube.com/channel/UCwp5daz8CNNN0pIeCs3Q0JQ" target="_blank" rel="noopener noreferrer"><img src="imgs/icon_yt.png" class="icon"><a href="https://www.youtube.com/channel/UCwp5daz8CNNN0pIeCs3Q0JQ" target="_blank" rel="noopener noreferrer"></a>
-				<a class="aimg" href="https://open.spotify.com/artist/5f2waN8ZNrblaZEvfzHPeg?si=vp0mYb5lQfuaERpP5kegFQ" target=_blank" rel="noopener noreferrer"><img src="imgs/icon_spotify.png" class="icon"></a>
+				<a class="aimg" href="https://www.youtube.com/channel/UCwp5daz8CNNN0pIeCs3Q0JQ" target="_blank" rel="noopener noreferrer"><img src="imgs/icon_yt.png" class="icon"></a>
+				<a class="aimg" href="https://open.spotify.com/artist/5f2waN8ZNrblaZEvfzHPeg?si=vp0mYb5lQfuaERpP5kegFQ" target="_blank" rel="noopener noreferrer"><img src="imgs/icon_spotify.png" class="icon"></a>
 			</div>
 		</div>
 	`
@@ -27,7 +30,7 @@ function displayHeader(pagename){
 
 
 
-window.onload = function(){
+window.addEventListener('load', function(){
 	window.addEventListener("keydown", function(e) {
     // space and arrow keys
     if([32, 37, 38, 39, 40].indexOf(e.keyCode) > -1) {
@@ -37,9 +40,7 @@ window.onload = function(){
 
 	let title = document.title.replace(/ /g,'')
 	const myTitle = title.split("|")
-	console.log(myTitle)
 
 	displayHeader(myTitle[1])
 	// displayNav2()
-}
-
+})
